@@ -58,7 +58,7 @@ const Header = () => {
                         <button><Avatar img={"/like.png"} rounded size={30} className="pt-2" /></button>
                     </div>
 
-                    <div className="pl-3">
+                    <div className="pl-3 pr-3">
                         <button><Avatar img={"/shopping-cart.png"} rounded size={30} className="pt-2" /></button>
                     </div>
 
