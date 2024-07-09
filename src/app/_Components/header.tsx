@@ -1,6 +1,7 @@
 "use client";
 
 import { Avatar } from "flowbite-react";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
 
@@ -34,7 +35,7 @@ const Header = () => {
     return (
         <div className=" shadow-sm shadow-gray-700">
             <div className="flex justify-between items-center px-4">
-                <a href="/"><img src="/logo.png" alt="" width={60} height={60} /></a>
+                <a href="/"><img src="/Logo.png" alt="" width={60} height={60} /></a>
 
                 <nav className="">
                     <ul className="flex">
@@ -51,7 +52,7 @@ const Header = () => {
                     </div>
 
                     <div className="pl-3">
-                        <button><Avatar img={"/user.png"} rounded size={30} className="pt-2" /></button>
+                        <Link href={"/login"} ><button><Avatar img={"/user.png"} rounded size={30} className="pt-2" /></button></Link>
                     </div>
 
                     <div className="pl-3">
