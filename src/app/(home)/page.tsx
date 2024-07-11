@@ -1,5 +1,6 @@
 "use client"
 
+import { Slidder } from "../_Components/carousel";
 import Header from "../_Components/header";
 
 
@@ -9,9 +10,8 @@ export default function Home() {
     <>
       <header><Header /></header>
 
-      <main>
-
-
+      <main className="mt-1">
+        <Slidder />
       </main>
     </>
   );
