@@ -31,6 +31,19 @@ const FormLogin = () => {
 
     const router = useRouter()
 
+    const loginGoogle = async () => {
+        try {
+            let { data, error } = await supabase
+                .auth
+                .signInWithOAuth({
+                    provider: 'google'
+                })
+            console.log(data)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     const login = async () => {
         try {
             let { data: dataUser, error } = await supabase
@@ -68,7 +81,7 @@ const FormLogin = () => {
                     <h1 className="my-[28px]">Bem-vindo ao DBC Tech</h1>
 
                     <div className="flex flex-col gap-6 mt-9">
-                        <button className="w-full text-[15px] font-medium px-4 py-2 rounded-[20px] flex items-center justify-center gap-2 bg-white text-[#0f1419] hover:bg-[#e6e6e6]">
+                        <button onClick={loginGoogle} className="w-full text-[15px] font-medium px-4 py-2 rounded-[20px] flex items-center justify-center gap-2 bg-white text-[#0f1419] hover:bg-[#e6e6e6]">
                             <img src="google.png" alt="" width={25} height={25} />
                             <span>Sign In with Google</span>
                         </button>
@@ -82,19 +95,19 @@ const FormLogin = () => {
                         </p>
                     </div>
 
-                    <div className="w-full relative">
+                    <div className="w-full relative pb-1">
 
                         <FloatingLabel variant="outlined" label="Email" type="text" name="email" value={data.email} onChange={handleCharge} />
                     </div>
-                    <div>
+                    <div className="w-full relative pb-3">
                         <FloatingLabel variant="outlined" label="Senha" type="password" name="password" value={data.password} onChange={handleCharge} />
                     </div>
                     <div>
-                        <button className="w-full text-[15px] font-medium px-0 py-2 rounded-[20px] bg-white text-[#0f1419] hover:bg-[#e6e6e6] mb-3">Log in</button>
+                        <button className="w-full text-[15px] font-medium px-0 py-2 rounded-[20px] bg-white text-[#0f1419] hover:bg-[#e6e6e6] mb-3">Entrar</button>
                         <button className="w-full text-[15px] font-medium px-0 py-2 rounded-[20px] bg-transparent text-white border border-solid border-[#536471] hover:bg-[#181919]">Esqueceu a senha?</button>
                     </div>
                     <div className="font-light text-center mt-8">
-                        <p>Não possui conta? <a className="text-[#1d9bf0] hover:underline hover:decoration-[#1d9bf0]" href="#">Cadastre</a></p>
+                        <p>Não possui conta? <a className="text-[#1d9bf0] hover:underline hover:decoration-[#1d9bf0]" href="/SignUp">Cadastre-se</a></p>
                     </div>
                 </div>
             </div >
